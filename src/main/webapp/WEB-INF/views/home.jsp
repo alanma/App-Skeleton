@@ -10,5 +10,8 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+
+<a href="<c:url value="/app_logout"/>">Logout</a>
+
 </body>
 </html>

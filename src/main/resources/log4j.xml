@@ -10,6 +10,19 @@
 		</layout>
 	</appender>
 	
+	<appender name="file"
+		class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${catalina.base}/logs/apps-web.log" />
+		<param name="Threshold" value="info" />
+		<param name="Append" value="false" />
+		<param name="MaxFileSize" value="1MB" />
+		<param name="MaxBackupIndex" value="1" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern"
+				value="%d %-5p %X{service} %X{user} [%c] %m%n" />
+		</layout>
+	</appender>
+	
 	<!-- Application Loggers -->
 	<logger name="com.ama.apps">
 		<level value="info" />
@@ -18,7 +31,7 @@
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
 		<level value="info" />
-	</logger>
+	</logger>	
 	
 	<logger name="org.springframework.beans">
 		<level value="info" />
@@ -34,8 +47,9 @@
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="warn" />
+		<priority value="info" />
 		<appender-ref ref="console" />
+ 		<appender-ref ref="file" />
 	</root>
 	
 </log4j:configuration>
